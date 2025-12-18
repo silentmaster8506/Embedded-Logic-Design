@@ -1,6 +1,8 @@
 # Embedded-Logic-Design
 This Repo contains several projects of verilog and hardware software codesign on FPGA and Zync SoC.
+
 Lab Objective:
+
 Lab 1: 
 • Design and implement a 4-bit adder for unsigned inputs using Full
 Adder

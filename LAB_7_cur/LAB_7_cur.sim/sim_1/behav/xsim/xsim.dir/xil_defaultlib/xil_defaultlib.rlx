@@ -1,0 +1,11 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.srcs/sim_1/new/fft_tb.v,1759813099,verilog,,,,fft_tb,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.srcs/sources_1/ip/adder/sim/adder.vhd,1760004166,vhdl,,,,adder,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.srcs/sources_1/ip/addi/sim/addi.vhd,1760007358,vhdl,,,,addi,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.srcs/sources_1/ip/splitter/sim/splitter.v,1760004010,verilog,,C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.srcs/sources_1/new/top.v,,splitter,,,../../../../LAB_7_cur.ip_user_files/ipstatic/hdl,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.srcs/sources_1/ip/xfft_0/sim/xfft_0.vhd,1759809926,vhdl,,,,xfft_0,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.srcs/sources_1/new/top.v,1760009971,verilog,,C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.srcs/sim_1/new/fft_tb.v,,top,,,../../../../LAB_7_cur.ip_user_files/ipstatic/hdl,,,,,

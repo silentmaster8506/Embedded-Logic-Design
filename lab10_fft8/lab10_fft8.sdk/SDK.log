@@ -1,0 +1,146 @@
+10:46:40 INFO  : Registering command handlers for SDK TCF services
+10:46:42 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\User\Desktop\ELD_LAB\lab10_fft8\lab10_fft8.sdk\temp_xsdb_launch_script.tcl
+10:46:46 INFO  : XSCT server has started successfully.
+10:46:48 INFO  : Processing command line option -hwspec C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper.hdf.
+10:46:49 INFO  : Successfully done setting XSCT server connection channel  
+10:46:49 INFO  : Successfully done setting SDK workspace  
+10:51:28 INFO  : Refreshed build settings on project fft8
+10:52:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA" && level==0} -index 1' command is executed.
+10:52:04 INFO  : 'fpga -state' command is executed.
+10:52:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:52:04 INFO  : Jtag cable 'Digilent Zybo Z7 210351A7817AA' is selected.
+10:52:04 INFO  : 'jtag frequency' command is executed.
+10:52:04 INFO  : Sourcing of 'C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+10:52:04 INFO  : Context for 'APU' is selected.
+10:52:05 INFO  : Hardware design information is loaded from 'C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/system.hdf'.
+10:52:05 INFO  : 'configparams force-mem-access 1' command is executed.
+10:52:05 INFO  : Context for 'APU' is selected.
+10:52:05 INFO  : 'stop' command is executed.
+10:52:06 INFO  : 'ps7_init' command is executed.
+10:52:06 INFO  : 'ps7_post_config' command is executed.
+10:52:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:52:06 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+10:52:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:52:07 INFO  : The application 'C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8/Debug/fft8.elf' is downloaded to processor 'ps7_cortexa9_0'.
+10:52:07 INFO  : 'configparams force-mem-access 0' command is executed.
+10:52:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+loadhw -hw C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+dow C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8/Debug/fft8.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+10:52:07 INFO  : Memory regions updated for context APU
+10:52:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:52:07 INFO  : 'con' command is executed.
+10:52:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+con
+----------------End of Script----------------
+
+10:52:07 INFO  : Launch script is exported to file 'C:\Users\User\Desktop\ELD_LAB\lab10_fft8\lab10_fft8.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_fft8.elf_on_local.tcl'
+10:55:41 INFO  : Disconnected from the channel tcfchan#1.
+10:55:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:55:43 INFO  : Jtag cable 'Digilent Zybo Z7 210351A7817AA' is selected.
+10:55:43 INFO  : 'jtag frequency' command is executed.
+10:55:43 INFO  : Sourcing of 'C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+10:55:43 INFO  : Context for 'APU' is selected.
+10:55:43 INFO  : System reset is completed.
+10:55:46 INFO  : 'after 3000' command is executed.
+10:55:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA" && level==0} -index 1' command is executed.
+10:55:48 INFO  : FPGA configured successfully with bitstream "C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/fft8bd_wrapper.bit"
+10:55:48 INFO  : Context for 'APU' is selected.
+10:55:50 INFO  : Hardware design information is loaded from 'C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/system.hdf'.
+10:55:50 INFO  : 'configparams force-mem-access 1' command is executed.
+10:55:51 INFO  : Context for 'APU' is selected.
+10:55:51 INFO  : 'ps7_init' command is executed.
+10:55:51 INFO  : 'ps7_post_config' command is executed.
+10:55:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:55:51 INFO  : The application 'C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8/Debug/fft8.elf' is downloaded to processor 'ps7_cortexa9_0'.
+10:55:51 INFO  : 'configparams force-mem-access 0' command is executed.
+10:55:51 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA" && level==0} -index 1
+fpga -file C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/fft8bd_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+loadhw -hw C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+dow C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8/Debug/fft8.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+10:55:52 INFO  : Memory regions updated for context APU
+10:55:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:55:52 INFO  : 'con' command is executed.
+10:55:52 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+con
+----------------End of Script----------------
+
+10:55:52 INFO  : Launch script is exported to file 'C:\Users\User\Desktop\ELD_LAB\lab10_fft8\lab10_fft8.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_fft8.elf_on_local.tcl'
+10:56:37 INFO  : Disconnected from the channel tcfchan#2.
+10:56:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:56:38 INFO  : Jtag cable 'Digilent Zybo Z7 210351A7817AA' is selected.
+10:56:38 INFO  : 'jtag frequency' command is executed.
+10:56:38 INFO  : Sourcing of 'C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+10:56:39 INFO  : Context for 'APU' is selected.
+10:56:39 INFO  : System reset is completed.
+10:56:42 INFO  : 'after 3000' command is executed.
+10:56:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA" && level==0} -index 1' command is executed.
+10:56:43 INFO  : FPGA configured successfully with bitstream "C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/fft8bd_wrapper.bit"
+10:56:44 INFO  : Context for 'APU' is selected.
+10:56:46 INFO  : Hardware design information is loaded from 'C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/system.hdf'.
+10:56:46 INFO  : 'configparams force-mem-access 1' command is executed.
+10:56:46 INFO  : Context for 'APU' is selected.
+10:56:46 INFO  : 'ps7_init' command is executed.
+10:56:46 INFO  : 'ps7_post_config' command is executed.
+10:56:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:56:47 INFO  : The application 'C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8/Debug/fft8.elf' is downloaded to processor 'ps7_cortexa9_0'.
+10:56:47 INFO  : 'configparams force-mem-access 0' command is executed.
+10:56:47 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA" && level==0} -index 1
+fpga -file C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/fft8bd_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+loadhw -hw C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8bd_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+dow C:/Users/User/Desktop/ELD_LAB/lab10_fft8/lab10_fft8.sdk/fft8/Debug/fft8.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+10:56:47 INFO  : Memory regions updated for context APU
+10:56:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:56:47 INFO  : 'con' command is executed.
+10:56:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo Z7 210351A7817AA"} -index 0
+con
+----------------End of Script----------------
+
+10:56:47 INFO  : Launch script is exported to file 'C:\Users\User\Desktop\ELD_LAB\lab10_fft8\lab10_fft8.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_fft8.elf_on_local.tcl'
+10:58:11 INFO  : Disconnected from the channel tcfchan#3.

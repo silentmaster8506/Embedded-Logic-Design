@@ -1,0 +1,60 @@
+10:55:11 **** Incremental Build of configuration Debug for project fft8 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+10:55:38 **** Incremental Build of configuration Debug for project fft8 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+10:56:25 **** Auto Build of configuration Debug for project fft8 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fft8_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../src/helloworld.c:53:
+../../fft8_bsp/ps7_cortexa9_0/include/xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+../src/helloworld.c: In function 'bitreverse':
+../src/helloworld.c:64:2: warning: label 'bit_reversal' defined but not used [-Wunused-label]
+  bit_reversal: for(int i=0;i<N;i++){
+  ^~~~~~~~~~~~
+../src/helloworld.c: In function 'FFT_stages':
+../src/helloworld.c:81:2: warning: label 'stage3' defined but not used [-Wunused-label]
+  stage3: for(int i=0;i<N/2;i=i+1){
+  ^~~~~~
+../src/helloworld.c:75:2: warning: label 'stage2' defined but not used [-Wunused-label]
+  stage2: for(int i=0;i<N;i=i+4){
+  ^~~~~~
+../src/helloworld.c:71:2: warning: label 'stage1' defined but not used [-Wunused-label]
+  stage1: for(int i=0;i<N;i=i+2){
+  ^~~~~~
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:102:16: warning: passing argument 1 of 'bitreverse' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     bitreverse(FFT_input,FFT_rev_sw);
+                ^~~~~~~~~
+../src/helloworld.c:63:31: note: expected '_Complex float *' but argument is of type 'const _Complex float *'
+ void bitreverse(float complex dataIn[N], float complex dataOut[N]){
+                 ~~~~~~~~~~~~~~^~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fft8.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../fft8_bsp/ps7_cortexa9_0/lib -o "fft8.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fft8.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size fft8.elf  |tee "fft8.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  70424	   2648	  23328	  96400	  17890	fft8.elf
+'Finished building: fft8.elf.size'
+' '
+10:56:33 **** Incremental Build of configuration Debug for project fft8 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.

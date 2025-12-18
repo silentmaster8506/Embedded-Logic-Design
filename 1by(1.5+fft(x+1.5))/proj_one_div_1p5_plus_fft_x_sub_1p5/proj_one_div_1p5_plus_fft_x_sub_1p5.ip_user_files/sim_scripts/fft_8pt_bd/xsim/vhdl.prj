@@ -1,0 +1,10 @@
+vhdl xil_defaultlib  \
+"../../../bd/fft_8pt_bd/ip/fft_8pt_bd_axi_dma_0_0/sim/fft_8pt_bd_axi_dma_0_0.vhd" \
+"../../../bd/fft_8pt_bd/ip/fft_8pt_bd_xfft_0_0/sim/fft_8pt_bd_xfft_0_0.vhd" \
+"../../../bd/fft_8pt_bd/ip/fft_8pt_bd_axi_smc_0/bd_0/ip/ip_1/sim/bd_b8a1_psr_aclk_0.vhd" \
+"../../../bd/fft_8pt_bd/ip/fft_8pt_bd_rst_ps7_0_100M_0/sim/fft_8pt_bd_rst_ps7_0_100M_0.vhd" \
+"../../../bd/fft_8pt_bd/ip/fft_8pt_bd_floating_point_0_0/sim/fft_8pt_bd_floating_point_0_0.vhd" \
+"../../../bd/fft_8pt_bd/ip/fft_8pt_bd_floating_point_1_0/sim/fft_8pt_bd_floating_point_1_0.vhd" \
+"../../../bd/fft_8pt_bd/ip/fft_8pt_bd_floating_point_2_0/sim/fft_8pt_bd_floating_point_2_0.vhd" \
+
+nosort

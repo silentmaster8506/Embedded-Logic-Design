@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Nov 11 09:12:29 2025
+# Process ID: 11244
+# Current directory: C:/Users/User/Desktop/ELD_LAB/lab_9/lab_9.runs/fft_bd_axi_dma_0_0_synth_1
+# Command line: vivado.exe -log fft_bd_axi_dma_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fft_bd_axi_dma_0_0.tcl
+# Log file: C:/Users/User/Desktop/ELD_LAB/lab_9/lab_9.runs/fft_bd_axi_dma_0_0_synth_1/fft_bd_axi_dma_0_0.vds
+# Journal file: C:/Users/User/Desktop/ELD_LAB/lab_9/lab_9.runs/fft_bd_axi_dma_0_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source fft_bd_axi_dma_0_0.tcl -notrace

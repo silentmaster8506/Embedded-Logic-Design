@@ -1,0 +1,213 @@
+#include <stdio.h>
+#include <complex.h>
+#include <stdlib.h>
+#include <math.h>
+
+#include "platform.h"
+#include "xil_printf.h"
+#include "xil_cache.h"
+#include "xtime_l.h"
+
+#include "xparameters.h"
+#include "xaxidma.h"
+
+#ifndef XPAR_AXI_DMA_0_DEVICE_ID
+#define XPAR_AXI_DMA_0_DEVICE_ID XPAR_AXIDMA_0_DEVICE_ID
+#endif
+
+#define N 8   // ------------------------ 8 POINT FFT ---------------------
+
+// ---------------- BIT REVERSE TABLE (8-POINT) ----------------
+static const int rev8[N] = {
+    0, 4, 2, 6,
+    1, 5, 3, 7
+};
+
+// ---------------- TWIDDLE FACTORS FOR N = 8 -------------------
+static const float complex W[N/2] = {
+    1.00000000 - 0.00000000*I,
+    0.70710678 - 0.70710678*I,
+    0.00000000 - 1.00000000*I,
+   -0.70710678 - 0.70710678*I
+};
+
+// ---------------- SOFTWARE BIT REVERSE ----------------
+void bitreverse(float complex in[N], float complex out[N])
+{
+    for (int i = 0; i < N; i++)
+        out[i] = in[rev8[i]];
+}
+
+// ---------------- SOFTWARE FFT (8-POINT) ------------------------
+void FFT_stages(float complex in[N], float complex out[N])
+{
+    float complex t1[N], t2[N];
+
+    // Stage 1 (2-point butterflies)
+    for (int i = 0; i < N; i += 2) {
+        t1[i]   = in[i] + in[i+1];
+        t1[i+1] = in[i] - in[i+1];
+    }
+
+    // Stage 2 (4-point)
+    for (int i = 0; i < N; i += 4) {
+        t2[i]   = t1[i] + W[0] * t1[i+2];
+        t2[i+2] = t1[i] - W[0] * t1[i+2];
+
+        t2[i+1] = t1[i+1] + W[2] * t1[i+3];
+        t2[i+3] = t1[i+1] - W[2] * t1[i+3];
+    }
+
+    // Stage 3 (8-point)
+    for (int i = 0; i < 4; i++) {
+        out[i]   = t2[i] + W[i] * t2[i+4];
+        out[i+4] = t2[i] - W[i] * t2[i+4];
+    }
+}
+
+// =======================================================================
+// GLOBAL BUFFERS
+// =======================================================================
+
+static float complex FFT_input[N] = {
+    11+23*I, 32+10*I, 91+94*I, 15+69*I,
+    47+96*I, 44+12*I, 96+17*I, 49+58*I
+};
+
+static float complex FFT_output_sw[N];
+static float complex FFT_output_hw[N];
+static float complex FFT_rev_sw[N];
+
+int DMA_Init(XAxiDma *AxiDma, u16 DeviceId)
+{
+    XAxiDma_Config *CfgPtr;
+
+    CfgPtr = XAxiDma_LookupConfig(DeviceId);
+    if (!CfgPtr) {
+        xil_printf("No config found\n");
+        return XST_FAILURE;
+    }
+
+    int Status = XAxiDma_CfgInitialize(AxiDma, CfgPtr);
+    if (Status != XST_SUCCESS) return XST_FAILURE;
+
+    if(XAxiDma_HasSg(AxiDma)) return XST_FAILURE;
+
+    XAxiDma_IntrDisable(AxiDma, XAXIDMA_IRQ_ALL_MASK, XAXIDMA_DEVICE_TO_DMA);
+    XAxiDma_IntrDisable(AxiDma, XAXIDMA_IRQ_ALL_MASK, XAXIDMA_DMA_TO_DEVICE);
+
+    return XST_SUCCESS;
+}
+
+// =======================================================================
+// MAIN
+// =======================================================================
+
+int main()
+{
+    init_platform();
+
+    XAxiDma AxiDMA;
+    int status;
+
+    XTime ps_start, ps_end;
+    XTime pl_start, pl_end;
+
+    xil_printf("\n--- Starting 8-point FFT + 1/(1.5 + FFT(x)) Test ---\n");
+
+    // -------------------------------------------------------------
+    // PART A: SOFTWARE (PS)
+    // -------------------------------------------------------------
+
+    XTime_GetTime(&ps_start);
+
+    // 1. BIT REVERSE → FFT
+    bitreverse(FFT_input, FFT_rev_sw);
+    FFT_stages(FFT_rev_sw, FFT_output_sw);
+
+    // 2. Apply post-processing: y = 1 / (1.5 + FFT(x))
+    for(int i=0;i<N;i++)
+        FFT_output_sw[i] = 1.0f / (1.5f + FFT_output_sw[i]);
+
+    XTime_GetTime(&ps_end);
+
+    // -------------------------------------------------------------
+    // PART B: HARDWARE (PL)
+    // -------------------------------------------------------------
+
+    status = DMA_Init(&AxiDMA, XPAR_AXI_DMA_0_DEVICE_ID);
+    if (status != XST_SUCCESS) {
+        xil_printf("DMA init failed!\n");
+        return -1;
+    }
+
+    // Flush cache
+    Xil_DCacheFlushRange((UINTPTR)FFT_input, sizeof(FFT_input));
+    Xil_DCacheFlushRange((UINTPTR)FFT_output_hw, sizeof(FFT_output_hw));
+
+    XTime_GetTime(&pl_start);
+
+    // 1. Receive from PL
+    status = XAxiDma_SimpleTransfer(
+        &AxiDMA,
+        (UINTPTR)FFT_output_hw,
+        sizeof(FFT_output_hw),
+        XAXIDMA_DEVICE_TO_DMA
+    );
+    if (status != XST_SUCCESS) return -1;
+
+    // 2. Send to PL
+    status = XAxiDma_SimpleTransfer(
+        &AxiDMA,
+        (UINTPTR)FFT_input,
+        sizeof(FFT_input),
+        XAXIDMA_DMA_TO_DEVICE
+    );
+    if (status != XST_SUCCESS) return -1;
+
+    // Wait
+    while (XAxiDma_Busy(&AxiDMA, XAXIDMA_DMA_TO_DEVICE));
+    while (XAxiDma_Busy(&AxiDMA, XAXIDMA_DEVICE_TO_DMA));
+
+    XTime_GetTime(&pl_end);
+
+    // Invalidate
+    Xil_DCacheInvalidateRange((UINTPTR)FFT_output_hw, sizeof(FFT_output_hw));
+
+    // -------------------------------------------------------------
+    // PART C: APPLY POST-PROCESSING TO PL ALSO
+    // -------------------------------------------------------------
+    for(int i=0;i<N;i++)
+        FFT_output_hw[i] = 1.0f / (1.5f + FFT_output_hw[i]);
+
+    // -------------------------------------------------------------
+    // PART D: COMPARISON
+    // -------------------------------------------------------------
+    printf("\nComparing PS vs PL (after 1/(1.5+FFT(x))):\n");
+
+    int error_count = 0;
+
+    for (int i = 0; i < N; i++) {
+
+        float diff_r = fabs(crealf(FFT_output_sw[i]) - crealf(FFT_output_hw[i]));
+        float diff_i = fabs(cimagf(FFT_output_sw[i]) - cimagf(FFT_output_hw[i]));
+
+        printf("Idx %d | PS %.5f + %.5fi | PL %.5f + %.5fi",
+               i,
+               crealf(FFT_output_sw[i]), cimagf(FFT_output_sw[i]),
+               crealf(FFT_output_hw[i]), cimagf(FFT_output_hw[i]));
+
+        if (diff_r > 0.001 || diff_i > 0.001) {
+            printf(" -> MISMATCH\n");
+            error_count++;
+        } else {
+            printf(" -> MATCH\n");
+        }
+    }
+
+    printf("\nFINAL RESULT: %s\n",
+        (error_count == 0) ? "SUCCESS" : "FAIL");
+
+    cleanup_platform();
+    return 0;
+}

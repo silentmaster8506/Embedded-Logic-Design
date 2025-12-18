@@ -1,0 +1,330 @@
+
+*** Running vivado
+    with args -log vio_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source vio_wrapper.tcl
+
+
+****** Vivado v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source vio_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 384.105 ; gain = 89.410
+Command: synth_design -top vio_wrapper -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 6596 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 839.043 ; gain = 176.395
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'vio_wrapper' [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/vio_wrapper.v:23]
+INFO: [Synth 8-6157] synthesizing module 'vio_0' [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/synth_1/.Xil/Vivado-8844-DESKTOP-85HP5LG/realtime/vio_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'vio_0' (1#1) [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/synth_1/.Xil/Vivado-8844-DESKTOP-85HP5LG/realtime/vio_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'Top_counter1' [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/Top_counter1.v:23]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/synth_1/.Xil/Vivado-8844-DESKTOP-85HP5LG/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (2#1) [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/synth_1/.Xil/Vivado-8844-DESKTOP-85HP5LG/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_div_rtl' [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/clk_div_rtl.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'clk_div_rtl' (3#1) [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/clk_div_rtl.v:21]
+INFO: [Synth 8-6157] synthesizing module 'counter_8bit' [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/counter_8bit.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'counter_8bit' (4#1) [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/counter_8bit.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'Top_counter1' (5#1) [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/Top_counter1.v:23]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'T2'. This will prevent further optimization [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/vio_wrapper.v:29]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'T1'. This will prevent further optimization [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/vio_wrapper.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'vio_wrapper' (6#1) [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/vio_wrapper.v:23]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 904.477 ; gain = 241.828
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 904.477 ; gain = 241.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 904.477 ; gain = 241.828
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'T1/c3'
+Finished Parsing XDC File [c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'T1/c3'
+Parsing XDC File [c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0_1/vio_0/vio_0_in_context.xdc] for cell 'T2'
+Finished Parsing XDC File [c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0_1/vio_0/vio_0_in_context.xdc] for cell 'T2'
+Parsing XDC File [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc]
+WARNING: [Vivado 12-584] No ports matched 'led[0]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:29]
+WARNING: [Vivado 12-584] No ports matched 'led[1]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:30]
+WARNING: [Vivado 12-584] No ports matched 'led[2]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:31]
+WARNING: [Vivado 12-584] No ports matched 'led[3]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:32]
+WARNING: [Vivado 12-584] No ports matched 'ja[0]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:106]
+WARNING: [Vivado 12-584] No ports matched 'ja[1]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:107]
+WARNING: [Vivado 12-584] No ports matched 'ja[2]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:108]
+WARNING: [Vivado 12-584] No ports matched 'ja[3]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:109]
+WARNING: [Vivado 12-584] No ports matched 'ja[4]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:110]
+WARNING: [Vivado 12-584] No ports matched 'ja[5]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:111]
+WARNING: [Vivado 12-584] No ports matched 'ja[6]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:112]
+WARNING: [Vivado 12-584] No ports matched 'ja[7]'. [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc:113]
+Finished Parsing XDC File [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/vio_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/vio_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/vio_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1006.457 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1006.457 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'T2' at clock pin 'clk' is different from the actual clock period '8.000', this can lead to different synthesis results.
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1009.438 ; gain = 346.789
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1009.438 ; gain = 346.789
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk_100m. (constraint file  {c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0/clk_wiz_0_in_context.xdc}, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100m. (constraint file  {c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0/clk_wiz_0_in_context.xdc}, line 4).
+Applied set_property DONT_TOUCH = true for T1/c3. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for T2. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1009.438 ; gain = 346.789
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1009.438 ; gain = 346.789
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               23 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module clk_div_rtl 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     23 Bit       Adders := 1     
++---Registers : 
+	               23 Bit    Registers := 1     
+Module counter_8bit 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1009.438 ; gain = 346.789
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'T1/c3/clk_8m' to pin 'T1/c3/bbstub_clk_8m/O'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1009.438 ; gain = 346.789
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1009.438 ; gain = 346.789
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 1011.129 ; gain = 348.480
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1026.961 ; gain = 364.312
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1026.961 ; gain = 364.312
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1026.961 ; gain = 364.312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1026.961 ; gain = 364.312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1026.961 ; gain = 364.312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1026.961 ; gain = 364.312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
+|2     |vio_0         |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |clk_wiz_0 |     1|
+|2     |vio_0     |     1|
+|3     |CARRY4    |     6|
+|4     |LUT1      |     2|
+|5     |LUT2      |     1|
+|6     |LUT4      |     5|
+|7     |LUT5      |     2|
+|8     |LUT6      |     8|
+|9     |FDCE      |     8|
+|10    |FDRE      |    23|
++------+----------+------+
+
+Report Instance Areas: 
++------+---------+-------------+------+
+|      |Instance |Module       |Cells |
++------+---------+-------------+------+
+|1     |top      |             |    58|
+|2     |  T1     |Top_counter1 |    56|
+|3     |    c1   |counter_8bit |    25|
+|4     |    c2   |clk_div_rtl  |    30|
++------+---------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1026.961 ; gain = 364.312
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:32 . Memory (MB): peak = 1026.961 ; gain = 259.352
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 1026.961 ; gain = 364.312
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1048.867 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+28 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:01:03 . Memory (MB): peak = 1048.867 ; gain = 632.941
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1048.867 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/synth_1/vio_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file vio_wrapper_utilization_synth.rpt -pb vio_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Sep  5 15:05:13 2025...

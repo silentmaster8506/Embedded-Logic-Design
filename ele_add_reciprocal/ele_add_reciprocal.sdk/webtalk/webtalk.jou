@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# 
+# Start of session at: Wed Dec  3 23:57:26 2025
+# Process ID: 59148
+# Current directory: C:/Users/jites/eld_labs/ele_add_reciprocal/ele_add_reciprocal.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: C:/Users/jites/eld_labs/ele_add_reciprocal/ele_add_reciprocal.sdk/webtalk/webtalk.log
+# Journal file: C:/Users/jites/eld_labs/ele_add_reciprocal/ele_add_reciprocal.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

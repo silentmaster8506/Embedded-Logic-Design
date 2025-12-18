@@ -1,0 +1,116 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Sep  2 19:46:17 2025
+# Process ID: 12936
+# Current directory: C:/Users/User/Desktop/ELD LAB/Lab2_hw
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10636 C:\Users\User\Desktop\ELD LAB\Lab2_hw\Lab2_hw.xpr
+# Log file: C:/Users/User/Desktop/ELD LAB/Lab2_hw/vivado.log
+# Journal file: C:/Users/User/Desktop/ELD LAB/Lab2_hw\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.xpr}
+update_compile_order -fileset sources_1
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name clk_wiz_0 -dir {c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip}
+set_property -dict [list CONFIG.PRIMARY_PORT {clk_100m} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {8.388} CONFIG.USE_LOCKED {false} CONFIG.USE_RESET {false} CONFIG.MMCM_DIVCLK_DIVIDE {5} CONFIG.MMCM_CLKFBOUT_MULT_F {38.375} CONFIG.MMCM_CLKOUT0_DIVIDE_F {91.500} CONFIG.CLKOUT1_JITTER {488.138} CONFIG.CLKOUT1_PHASE_ERROR {316.473}] [get_ips clk_wiz_0]
+generate_target {instantiation_template} [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}]
+update_compile_order -fileset sources_1
+generate_target all [get_files  {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}]
+catch { config_ip_cache -export [get_ips -all clk_wiz_0] }
+export_ip_user_files -of_objects [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}]
+launch_runs -jobs 2 clk_wiz_0_synth_1
+export_simulation -of_objects [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}] -directory {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files} -ipstatic_source_dir {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+close [ open {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/Top_counter1.v} w ]
+add_files {{C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/Top_counter1.v}}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close [ open {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/vio_wrapper.v} w ]
+add_files {{C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/new/vio_wrapper.v}}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+create_ip -name vio -vendor xilinx.com -library ip -version 3.0 -module_name vio_0 -dir {c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip}
+set_property -dict [list CONFIG.C_PROBE_IN0_WIDTH {8}] [get_ips vio_0]
+generate_target {instantiation_template} [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0/vio_0.xci}}]
+generate_target all [get_files  {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0/vio_0.xci}}]
+catch { config_ip_cache -export [get_ips -all vio_0] }
+export_ip_user_files -of_objects [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0/vio_0.xci}}] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0/vio_0.xci}}]
+launch_runs -jobs 2 vio_0_synth_1
+export_simulation -of_objects [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0/vio_0.xci}}] -directory {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files} -ipstatic_source_dir {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+file mkdir C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1
+file mkdir C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1
+file mkdir C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new
+file mkdir C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new
+file mkdir C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new
+file mkdir C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new
+file mkdir C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new
+file mkdir C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new
+file mkdir C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1
+file mkdir {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new}
+close [ open {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc} w ]
+add_files -fileset constrs_1 {{C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/constrs_1/new/const.xdc}}
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property -dict [list CONFIG.CLK_OUT1_PORT {clk_8m}] [get_ips clk_wiz_0]
+generate_target all [get_files  {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}]
+catch { config_ip_cache -export [get_ips -all clk_wiz_0] }
+export_ip_user_files -of_objects [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}] -no_script -sync -force -quiet
+reset_run clk_wiz_0_synth_1
+launch_runs -jobs 2 clk_wiz_0_synth_1
+export_simulation -of_objects [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}] -directory {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files} -ipstatic_source_dir {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+synth_design -rtl -name rtl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property -dict [list CONFIG.C_NUM_PROBE_OUT {2}] [get_ips vio_0]
+generate_target all [get_files  {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0/vio_0.xci}}]
+catch { config_ip_cache -export [get_ips -all vio_0] }
+export_ip_user_files -of_objects [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0/vio_0.xci}}] -no_script -sync -force -quiet
+reset_run vio_0_synth_1
+launch_runs -jobs 2 vio_0_synth_1
+export_simulation -of_objects [get_files {{c:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.srcs/sources_1/ip/vio_0/vio_0.xci}}] -directory {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files} -ipstatic_source_dir {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+refresh_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property board_part digilentinc.com:zybo-z7-10:part0:1.2 [current_project]
+reset_run synth_1
+reset_run clk_wiz_0_synth_1
+reset_run vio_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+refresh_design
+open_hw
+connect_hw_server -url 192.168.226.142:65420
+current_hw_target [get_hw_targets */xilinx_tcf/Digilent/210351A77B9BA]
+set_property PARAM.FREQUENCY 15000000 [get_hw_targets */xilinx_tcf/Digilent/210351A77B9BA]
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/impl_1/vio_wrapper.bit} [get_hw_devices xc7z010_1]
+set_property PROBES.FILE {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/impl_1/vio_wrapper.ltx} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/impl_1/vio_wrapper.ltx} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/impl_1/vio_wrapper.ltx} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/impl_1/vio_wrapper.ltx} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {C:/Users/User/Desktop/ELD LAB/Lab2_hw/Lab2_hw.runs/impl_1/vio_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+set_property INPUT_VALUE_RADIX UNSIGNED [get_hw_probes count -of_objects [get_hw_vios -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"T2"}]]
+set_property OUTPUT_VALUE 1 [get_hw_probes up -of_objects [get_hw_vios -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"T2"}]]
+commit_hw_vio [get_hw_probes {up} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"T2"}]]
+set_property OUTPUT_VALUE 1 [get_hw_probes reset -of_objects [get_hw_vios -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"T2"}]]
+commit_hw_vio [get_hw_probes {reset} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"T2"}]]
+set_property OUTPUT_VALUE 0 [get_hw_probes reset -of_objects [get_hw_vios -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"T2"}]]
+commit_hw_vio [get_hw_probes {reset} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"T2"}]]
+set_property OUTPUT_VALUE 0 [get_hw_probes up -of_objects [get_hw_vios -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"T2"}]]
+commit_hw_vio [get_hw_probes {up} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"T2"}]]

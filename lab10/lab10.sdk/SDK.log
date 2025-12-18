@@ -1,0 +1,13 @@
+09:35:50 INFO  : Registering command handlers for SDK TCF services
+09:35:51 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\User\Desktop\ELD_LAB\lab10\lab10.sdk\temp_xsdb_launch_script.tcl
+09:35:55 INFO  : XSCT server has started successfully.
+09:36:02 INFO  : Successfully done setting XSCT server connection channel  
+09:36:02 INFO  : Processing command line option -hwspec C:/Users/User/Desktop/ELD_LAB/lab10/lab10.sdk/fft_bd_wrapper.hdf.
+09:36:03 INFO  : Successfully done setting SDK workspace  
+09:52:26 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\User\Desktop\ELD_LAB\lab10\lab10.sdk\temp_xsdb_launch_script.tcl
+09:52:29 INFO  : XSCT server has started successfully.
+09:52:35 INFO  : Successfully done setting XSCT server connection channel  
+09:52:35 INFO  : Successfully done setting SDK workspace  
+09:52:39 INFO  : Registering command handlers for SDK TCF services
+09:52:40 INFO  : Processing command line option -hwspec C:/Users/User/Desktop/ELD_LAB/lab10/lab10.sdk/fft_bd_wrapper.hdf.
+09:52:40 INFO  : Checking for hwspec changes in the project fft_bd_wrapper_hw_platform_0.

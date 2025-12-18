@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="fft_8pt_bd_axi_dma_0_0_synth_1" LaunchDir="D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/fft_8pt_bd_axi_dma_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fft_8pt_bd_auto_pc_0_synth_1" LaunchDir="D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/fft_8pt_bd_auto_pc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fft_8pt_bd_floating_point_0_0_synth_1" LaunchDir="D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/fft_8pt_bd_floating_point_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fft_8pt_bd_axis_dwidth_converter_0_0_synth_1" LaunchDir="D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/fft_8pt_bd_axis_dwidth_converter_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fft_8pt_bd_floating_point_1_0_synth_1" LaunchDir="D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/fft_8pt_bd_floating_point_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fft_8pt_bd_floating_point_2_0_synth_1" LaunchDir="D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/fft_8pt_bd_floating_point_2_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fft_8pt_bd_axis_dwidth_converter_1_0_synth_1" LaunchDir="D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/fft_8pt_bd_axis_dwidth_converter_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fft_8pt_bd_system_ila_0_0_synth_1" LaunchDir="D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/fft_8pt_bd_system_ila_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

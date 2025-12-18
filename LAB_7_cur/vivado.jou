@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Oct  9 18:21:50 2025
+# Process ID: 5756
+# Current directory: C:/Users/User/Desktop/ELD LAB/LAB_7_cur
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9112 C:\Users\User\Desktop\ELD LAB\LAB_7_cur\LAB_7_cur.xpr
+# Log file: C:/Users/User/Desktop/ELD LAB/LAB_7_cur/vivado.log
+# Journal file: C:/Users/User/Desktop/ELD LAB/LAB_7_cur\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/User/Desktop/ELD LAB/LAB_7_cur/LAB_7_cur.xpr}
+update_compile_order -fileset sources_1

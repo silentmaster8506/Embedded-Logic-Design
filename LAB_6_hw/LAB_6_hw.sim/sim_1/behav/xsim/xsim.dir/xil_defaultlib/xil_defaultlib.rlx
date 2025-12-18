@@ -1,0 +1,12 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+C:/Users/User/Desktop/ELD LAB/LAB_6_hw/LAB_6_hw.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_6_hw/LAB_6_hw.srcs/sim_1/new/tb.v,1759737171,verilog,,,,tb,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_6_hw/LAB_6_hw.srcs/sources_1/ip/fp_add/sim/fp_add.vhd,1759467475,vhdl,,,,fp_add,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_6_hw/LAB_6_hw.srcs/sources_1/ip/fp_add1p/sim/fp_add1p.vhd,1759467405,vhdl,,,,fp_add1p,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_6_hw/LAB_6_hw.srcs/sources_1/ip/fp_log/sim/fp_log.vhd,1759424534,vhdl,,,,fp_log,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_6_hw/LAB_6_hw.srcs/sources_1/ip/fp_rec/sim/fp_rec.vhd,1759424454,vhdl,,,,fp_rec,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_6_hw/LAB_6_hw.srcs/sources_1/ip/fp_sqrt/sim/fp_sqrt.vhd,1759424372,vhdl,,,,fp_sqrt,,,,,,,,
+C:/Users/User/Desktop/ELD LAB/LAB_6_hw/LAB_6_hw.srcs/sources_1/new/top.v,1759424407,verilog,,C:/Users/User/Desktop/ELD LAB/LAB_6_hw/LAB_6_hw.srcs/sim_1/new/tb.v,,top,,,,,,,,

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Oct  2 15:02:51 2025
+# Process ID: 11044
+# Current directory: C:/Users/User/Desktop/ELD LAB/ak/ak.runs/floating_point_inverse_synth_1
+# Command line: vivado.exe -log floating_point_inverse.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source floating_point_inverse.tcl
+# Log file: C:/Users/User/Desktop/ELD LAB/ak/ak.runs/floating_point_inverse_synth_1/floating_point_inverse.vds
+# Journal file: C:/Users/User/Desktop/ELD LAB/ak/ak.runs/floating_point_inverse_synth_1\vivado.jou
+#-----------------------------------------------------------
+source floating_point_inverse.tcl -notrace

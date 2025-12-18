@@ -1,0 +1,194 @@
+/******************************************************************************
+*
+* Copyright (C) 2009 - 2014 Xilinx, Inc.  All rights reserved.
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in
+* all copies or substantial portions of the Software.
+*
+* Use of the Software is limited solely to applications:
+* (a) running on a Xilinx device, or
+* (b) that interact with a Xilinx device through a bus or interconnect.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+* XILINX  BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+* OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+* THE SOFTWARE.
+*
+* Except as contained in this notice, the name of the Xilinx shall not be used
+* in advertising or otherwise to promote the sale, use or other dealings in
+* this Software without prior written authorization from Xilinx.
+*
+******************************************************************************/
+
+#include <stdio.h>
+#include <complex.h>
+#include <stdlib.h>
+#include <math.h>
+#include "platform.h"
+#include "xil_printf.h"
+#include <xtime_l.h>
+#include "xparameters.h"
+#include "xaxidma.h"
+#include "dma_init.h"
+
+#define N 8
+#define EPS 1e-6f   /* small value to avoid log(0) */
+#define COMP_TOL 1e-3f /* tolerance for comparing y values */
+
+/* 8-point bit reverse table */
+const int rev16[N] = {0, 4, 2, 6, 1, 5, 3, 7};
+
+/* Twiddle factors for 8-point FFT: exp(-j*2*pi*k/8), k = 0..3 */
+const float complex W[N / 2] = {
+    1.00000000 - 0.00000000 * I,
+    0.70710678 - 0.70710678 * I,
+    0.00000000 - 1.00000000 * I,
+    -0.70710678 - 0.70710678 * I
+};
+
+void bitreverse(const float complex dataIn[N], float complex dataOut[N]) {
+    for (int i = 0; i < N; i++) {
+        dataOut[i] = dataIn[rev16[i]];
+    }
+}
+
+/* 8-point FFT uses only 3 stages */
+void FFT_stages(float complex FFT_input[N], float complex FFT_output[N]) {
+    float complex temp1[N], temp2[N];
+
+    // Stage 1
+    for (int i = 0; i < N; i += 2) {
+        temp1[i]     = FFT_input[i] + FFT_input[i + 1];
+        temp1[i + 1] = FFT_input[i] - FFT_input[i + 1];
+    }
+
+    // Stage 2
+    for (int i = 0; i < N; i += 4) {
+        temp2[i]     = temp1[i]     + W[0] * temp1[i + 2];
+        temp2[i + 2] = temp1[i]     - W[0] * temp1[i + 2];
+
+        temp2[i + 1] = temp1[i + 1] + W[2] * temp1[i + 3];
+        temp2[i + 3] = temp1[i + 1] - W[2] * temp1[i + 3];
+    }
+
+    // Stage 3
+    for (int i = 0; i < N / 2; i++) {
+        FFT_output[i]     = temp2[i]     + W[i] * temp2[i + 4];
+        FFT_output[i + 4] = temp2[i]     - W[i] * temp2[i + 4];
+    }
+}
+
+/* compute y = log(|complex|) with small EPS guard */
+static inline float log_mag(float complex z) {
+    float a = crealf(z);
+    float b = cimagf(z);
+    float mag = sqrtf(a * a + b * b);
+    return logf(mag + EPS);
+}
+
+int main() {
+    init_platform();
+
+    XTime PL_start_time, PL_end_time;
+    XTime PS_start_time, PS_end_time;
+
+    const float complex FFT_input[N] = {
+        11 + 23 * I, 32 + 10 * I, 91 + 94 * I, 15 + 69 * I,
+        47 + 96 * I, 44 + 12 * I, 96 + 17 * I, 49 + 58 * I
+    };
+
+    float complex FFT_output_sw[N], FFT_output_hw[N];
+    float complex FFT_rev_sw[N];
+
+    /* y arrays store y = log(|FFT|) for SW and HW */
+    float y_sw[N], y_hw[N];
+
+    /* Software FFT */
+    XTime_SetTime(0);
+    XTime_GetTime(&PS_start_time);
+
+    bitreverse(FFT_input, FFT_rev_sw);
+    FFT_stages(FFT_rev_sw, FFT_output_sw);
+
+    /* compute y_sw = log(|FFT_output_sw|) */
+    for (int i = 0; i < N; i++) {
+        y_sw[i] = log_mag(FFT_output_sw[i]);
+    }
+
+    XTime_GetTime(&PS_end_time);
+
+    /* Hardware FFT (DMA) */
+    int status;
+    XAxiDma AxiDMA;
+
+    status = DMA_Init(&AxiDMA, XPAR_AXI_DMA_0_DEVICE_ID);
+    if (status)
+        return 1;
+
+    XTime_SetTime(0);
+    XTime_GetTime(&PL_start_time);
+
+    /* Transfer - note: device is expected to write FFT result into FFT_output_hw */
+    status = XAxiDma_SimpleTransfer(
+        &AxiDMA,
+        (UINTPTR)FFT_output_hw,
+        (sizeof(float complex) * N),
+        XAXIDMA_DEVICE_TO_DMA
+    );
+
+    status = XAxiDma_SimpleTransfer(
+        &AxiDMA,
+        (UINTPTR)FFT_input,
+        (sizeof(float complex) * N),
+        XAXIDMA_DMA_TO_DEVICE
+    );
+
+    /* wait for DMA to finish */
+    while (XAxiDma_Busy(&AxiDMA, XAXIDMA_DMA_TO_DEVICE));
+    while (XAxiDma_Busy(&AxiDMA, XAXIDMA_DEVICE_TO_DMA));
+
+    XTime_GetTime(&PL_end_time);
+
+    /* compute y_hw = log(|FFT_output_hw|) */
+    for (int i = 0; i < N; i++) {
+        y_hw[i] = log_mag(FFT_output_hw[i]);
+    }
+
+    /* Compare y_sw and y_hw and print */
+    for (int i = 0; i < N; i++) {
+        printf(
+            "\n\rIndex %d: PS y = %f, PL y = %f",
+            i, y_sw[i], y_hw[i]
+        );
+
+        float diff = fabsf(y_sw[i] - y_hw[i]);
+
+        if (diff > COMP_TOL) {
+            printf("\n\rData Mismatch found at index %d ! diff = %f", i, diff);
+            /* optionally break or continue to list all mismatches */
+        } else {
+            printf("  -- Match (diff=%f)", diff);
+        }
+    }
+
+    printf("\n\r------- Execution Time Comparison --------");
+
+    float time_us;
+    time_us = (float)(PS_end_time - PS_start_time) / (COUNTS_PER_SECOND / 1000000);
+    printf("\n\rExecution time for PS in Micro-seconds: %f", time_us);
+
+    time_us = (float)(PL_end_time - PL_start_time) / (COUNTS_PER_SECOND / 1000000);
+    printf("\n\rExecution time for PL in Micro-seconds: %f", time_us);
+
+    return 0;
+}

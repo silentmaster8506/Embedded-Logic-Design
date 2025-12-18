@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Nov  5 22:37:29 2025
+# Process ID: 15032
+# Current directory: C:/Users/User/Desktop/ELD_LAB/lab9fft16/lab9fft16.runs/bd_fft_processing_system7_0_0_synth_1
+# Command line: vivado.exe -log bd_fft_processing_system7_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_fft_processing_system7_0_0.tcl
+# Log file: C:/Users/User/Desktop/ELD_LAB/lab9fft16/lab9fft16.runs/bd_fft_processing_system7_0_0_synth_1/bd_fft_processing_system7_0_0.vds
+# Journal file: C:/Users/User/Desktop/ELD_LAB/lab9fft16/lab9fft16.runs/bd_fft_processing_system7_0_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source bd_fft_processing_system7_0_0.tcl -notrace

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Nov  5 21:39:22 2025
+# Process ID: 2376
+# Current directory: C:/Users/User/Desktop/ELD_LAB/lab_9/lab_9.runs/synth_1
+# Command line: vivado.exe -log bd_fft_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_fft_wrapper.tcl
+# Log file: C:/Users/User/Desktop/ELD_LAB/lab_9/lab_9.runs/synth_1/bd_fft_wrapper.vds
+# Journal file: C:/Users/User/Desktop/ELD_LAB/lab_9/lab_9.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source bd_fft_wrapper.tcl -notrace

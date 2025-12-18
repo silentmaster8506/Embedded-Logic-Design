@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Dec  3 13:19:32 2025
+# Process ID: 22080
+# Current directory: D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/synth_1
+# Command line: vivado.exe -log fft_8pt_bd_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fft_8pt_bd_wrapper.tcl
+# Log file: D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/synth_1/fft_8pt_bd_wrapper.vds
+# Journal file: D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source fft_8pt_bd_wrapper.tcl -notrace

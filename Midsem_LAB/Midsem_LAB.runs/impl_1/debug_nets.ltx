@@ -1,0 +1,148 @@
+{
+    "ltx_root": {
+        "version": 4,
+        "minor": 0,
+        "ltx_data": [
+            {
+                "name": "EDA_PROBESET",
+                "active": true,
+                "debug_cores": [
+                    {
+                        "type": "XSDB_V3",
+                        "name": "dbg_hub",
+                        "spec": "labtools_xsdbm_v3",
+                        "clk_input_freq_hz": "125000003"
+                    },
+                    {
+                        "type": "VIO_V2",
+                        "name": "a1",
+                        "spec": "labtools_vio_v3",
+                        "ipName": "vio",
+                        "core_location": {
+                            "user_chain": 1,
+                            "slave_index": 0,
+                            "bscan_switch_index": 0
+                        },
+                        "uuid": "54548335DA115C8EA87091EAF2FF9B90",
+                        "pins": [
+                            {
+                                "name": "probe_in0",
+                                "id": 0,
+                                "type": "DATA",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 5,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "count",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "count[5]"
+                                            },
+                                            {
+                                                "name": "count[4]"
+                                            },
+                                            {
+                                                "name": "count[3]"
+                                            },
+                                            {
+                                                "name": "count[2]"
+                                            },
+                                            {
+                                                "name": "count[1]"
+                                            },
+                                            {
+                                                "name": "count[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe_out0",
+                                "id": 1,
+                                "type": "DATA",
+                                "direction": "OUT",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "reset",
+                                        "isBus": false,
+                                        "parentNetId": 6
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe_out1",
+                                "id": 2,
+                                "type": "DATA",
+                                "direction": "OUT",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "p",
+                                        "isBus": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "parent_nets": [
+                    {
+                        "id": 6,
+                        "name": "a1/inst/PROBE_OUT_ALL_INST/G_PROBE_OUT[0].PROBE_OUT0_INST/probe_out0[0]",
+                        "state_reg": [
+                            {
+                                "name": "a2/c3/FSM_onehot_count_reg_reg[1]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "00000001"
+                                    },
+                                    {
+                                        "name": "iSTATE0",
+                                        "val": "00000010"
+                                    },
+                                    {
+                                        "name": "iSTATE1",
+                                        "val": "00000100"
+                                    },
+                                    {
+                                        "name": "iSTATE2",
+                                        "val": "00001000"
+                                    },
+                                    {
+                                        "name": "iSTATE3",
+                                        "val": "00010000"
+                                    },
+                                    {
+                                        "name": "iSTATE4",
+                                        "val": "00100000"
+                                    },
+                                    {
+                                        "name": "iSTATE5",
+                                        "val": "01000000"
+                                    },
+                                    {
+                                        "name": "iSTATE6",
+                                        "val": "10000000"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

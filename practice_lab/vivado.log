@@ -1,0 +1,153 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec  4 08:05:39 2025
+# Process ID: 1544
+# Current directory: C:/Users/User/Desktop/ELD_LAB/practice_lab
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17136 C:\Users\User\Desktop\ELD_LAB\practice_lab\practice_lab.xpr
+# Log file: C:/Users/User/Desktop/ELD_LAB/practice_lab/vivado.log
+# Journal file: C:/Users/User/Desktop/ELD_LAB/practice_lab\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Desktop/Coding/Verilog/practice_lab' since last save.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-2] Board Part Repository Path: Could not find the directory 'C:/Users/Users/Chinmaya/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store', nor could it be found using path 'C:/Users/Chinmaya/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:31 ; elapsed = 00:00:18 . Memory (MB): peak = 897.547 ; gain = 245.234
+update_compile_order -fileset sources_1
+launch_sdk -workspace C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk -hwspec C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk -hwspec C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+open_bd_design {C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/prac_bd.bd}
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding component instance block -- xilinx.com:ip:axi_dma:7.1 - axi_dma_0
+Adding component instance block -- xilinx.com:ip:xfft:9.1 - xfft_0
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_smc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_100M
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - ps7_0_axi_periph
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:floating_point:7.1 - floating_point_0
+Adding component instance block -- xilinx.com:ip:axis_dwidth_converter:1.1 - axis_dwidth_converter_0
+Adding component instance block -- xilinx.com:ip:xlconstant:1.1 - xlconstant_0
+Adding component instance block -- xilinx.com:ip:floating_point:7.1 - floating_point_1
+Adding component instance block -- xilinx.com:ip:xlconstant:1.1 - xlconstant_1
+Adding component instance block -- xilinx.com:ip:xlconstant:1.1 - xlconstant_2
+Excluding </processing_system7_0/S_AXI_ACP/ACP_IOP> from </axi_dma_0/Data_MM2S>
+Excluding </processing_system7_0/S_AXI_ACP/ACP_M_AXI_GP0> from </axi_dma_0/Data_MM2S>
+Excluding </processing_system7_0/S_AXI_ACP/ACP_IOP> from </axi_dma_0/Data_S2MM>
+Excluding </processing_system7_0/S_AXI_ACP/ACP_M_AXI_GP0> from </axi_dma_0/Data_S2MM>
+Successfully read diagram <prac_bd> from BD file <C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/prac_bd.bd>
+open_bd_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 1316.770 ; gain = 0.000
+file mkdir C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk
+file copy -force C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.runs/impl_1/prac_bd_wrapper.sysdef C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+
+launch_sdk -workspace C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk -hwspec C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk -hwspec C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+launch_sdk -workspace C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk -hwspec C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk -hwspec C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {xfft_0_M_AXIS_DATA}]
+true
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {axis_dwidth_converter_0_M_AXIS}]
+true
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {floating_point_1_M_AXIS_RESULT}]
+true
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {floating_point_0_M_AXIS_RESULT}]
+true
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:debug -dict [list \
+                                                          [get_bd_intf_nets xfft_0_M_AXIS_DATA] {AXIS_SIGNALS "Data and Trigger" CLK_SRC "/processing_system7_0/FCLK_CLK0" SYSTEM_ILA "Auto" APC_EN "0" } \
+                                                          [get_bd_intf_nets floating_point_0_M_AXIS_RESULT] {AXIS_SIGNALS "Data and Trigger" CLK_SRC "/processing_system7_0/FCLK_CLK0" SYSTEM_ILA "Auto" APC_EN "0" } \
+                                                          [get_bd_intf_nets axis_dwidth_converter_0_M_AXIS] {AXIS_SIGNALS "Data and Trigger" CLK_SRC "/processing_system7_0/FCLK_CLK0" SYSTEM_ILA "Auto" APC_EN "0" } \
+                                                          [get_bd_intf_nets floating_point_1_M_AXIS_RESULT] {AXIS_SIGNALS "Data and Trigger" CLK_SRC "/processing_system7_0/FCLK_CLK0" SYSTEM_ILA "Auto" APC_EN "0" } \
+                                                         ]
+Debug Automation : Instantiating new System ILA block '/system_ila_0' with mode INTERFACE, 4 slot interface pins and 0 probe pins. Also setting parameters on this block, corresponding to newly enabled interface pins and probe pins as specified via Debug Automation.
+Debug Automation : Connecting source clock pin /processing_system7_0/FCLK_CLK0 to the following sink clock pins :
+/system_ila_0/clk
+Debug Automation : Connecting source reset pin /rst_ps7_0_100M/peripheral_aresetn to the following sink reset pins :
+/system_ila_0/resetn
+Debug Automation : Connecting interface connection /xfft_0_M_AXIS_DATA, to System ILA slot interface pin /system_ila_0/SLOT_0_AXIS for debug.
+Debug Automation : Connecting interface connection /floating_point_0_M_AXIS_RESULT, to System ILA slot interface pin /system_ila_0/SLOT_1_AXIS for debug.
+Debug Automation : Connecting interface connection /axis_dwidth_converter_0_M_AXIS, to System ILA slot interface pin /system_ila_0/SLOT_2_AXIS for debug.
+Debug Automation : Connecting interface connection /floating_point_1_M_AXIS_RESULT, to System ILA slot interface pin /system_ila_0/SLOT_3_AXIS for debug.
+apply_bd_automation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1316.770 ; gain = 0.000
+endgroup
+regenerate_bd_layout
+validate_bd_design
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to System ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. Failure to do so could result in critical warnings and errors in the implementation flow.
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+WARNING: [BD 41-1629] Slave segment </processing_system7_0/S_AXI_ACP/ACP_IOP> is excluded from all addressing paths.
+WARNING: [BD 41-1629] Slave segment </processing_system7_0/S_AXI_ACP/ACP_M_AXI_GP0> is excluded from all addressing paths.
+INFO: [xilinx.com:ip:xfft:9.1-913] /xfft_0 data_format has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /processing_system7_0/S_AXI_ACP(5) and /axi_smc/M00_AXI(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /processing_system7_0/S_AXI_ACP(5) and /axi_smc/M00_AXI(0)
+validate_bd_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:21 . Memory (MB): peak = 1387.562 ; gain = 70.793
+generate_target all [get_files  C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/prac_bd.bd]
+INFO: [BD 41-1662] The design 'prac_bd.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-1629] Slave segment </processing_system7_0/S_AXI_ACP/ACP_IOP> is excluded from all addressing paths.
+WARNING: [BD 41-1629] Slave segment </processing_system7_0/S_AXI_ACP/ACP_M_AXI_GP0> is excluded from all addressing paths.
+Wrote  : <C:\Users\User\Desktop\ELD_LAB\practice_lab\practice_lab.srcs\sources_1\bd\prac_bd\prac_bd.bd> 
+Wrote  : <C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/ui/bd_e852865d.ui> 
+VHDL Output written to : C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/synth/prac_bd.v
+VHDL Output written to : C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/sim/prac_bd.v
+VHDL Output written to : C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/hdl/prac_bd_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_dma_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xfft_0 .
+Exporting to file c:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/ip/prac_bd_axi_smc_2/bd_0/hw_handoff/prac_bd_axi_smc_2.hwh
+Generated Block Design Tcl file c:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/ip/prac_bd_axi_smc_2/bd_0/hw_handoff/prac_bd_axi_smc_2_bd.tcl
+Generated Hardware Definition File c:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/ip/prac_bd_axi_smc_2/bd_0/synth/prac_bd_axi_smc_2.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block floating_point_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_dwidth_converter_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block floating_point_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_2 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/ip/prac_bd_auto_pc_0/prac_bd_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file c:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/ip/prac_bd_system_ila_0_0/bd_0/hw_handoff/prac_bd_system_ila_0_0.hwh
+Generated Block Design Tcl file c:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/ip/prac_bd_system_ila_0_0/bd_0/hw_handoff/prac_bd_system_ila_0_0_bd.tcl
+Generated Hardware Definition File c:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/ip/prac_bd_system_ila_0_0/bd_0/synth/prac_bd_system_ila_0_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block system_ila_0 .
+Exporting to file C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/hw_handoff/prac_bd.hwh
+Generated Block Design Tcl file C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/hw_handoff/prac_bd_bd.tcl
+Generated Hardware Definition File C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/synth/prac_bd.hwdef
+generate_target: Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1670.992 ; gain = 272.855
+catch { config_ip_cache -export [get_ips -all prac_bd_auto_pc_0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP prac_bd_auto_pc_0, cache-ID = c7981aa4510def98; cache size = 34.679 MB.
+catch { config_ip_cache -export [get_ips -all prac_bd_system_ila_0_0] }
+export_ip_user_files -of_objects [get_files C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/prac_bd.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/prac_bd.bd]
+launch_runs -jobs 2 prac_bd_system_ila_0_0_synth_1
+[Thu Dec  4 08:56:04 2025] Launched prac_bd_system_ila_0_0_synth_1...
+Run output will be captured here: C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.runs/prac_bd_system_ila_0_0_synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1670.992 ; gain = 0.000
+export_simulation -of_objects [get_files C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/prac_bd.bd] -directory C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.ip_user_files -ipstatic_source_dir C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+make_wrapper -files [get_files C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.srcs/sources_1/bd/prac_bd/prac_bd.bd] -top
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Thu Dec  4 09:03:03 2025] Launched synth_1...
+Run output will be captured here: C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.runs/synth_1/runme.log
+[Thu Dec  4 09:03:03 2025] Launched impl_1...
+Run output will be captured here: C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.runs/impl_1/runme.log
+file copy -force C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.runs/impl_1/prac_bd_wrapper.sysdef C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+
+launch_sdk -workspace C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk -hwspec C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk -hwspec C:/Users/User/Desktop/ELD_LAB/practice_lab/practice_lab.sdk/prac_bd_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Dec  4 11:42:39 2025...

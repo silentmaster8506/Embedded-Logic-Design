@@ -1,0 +1,6 @@
+verilog xil_defaultlib --include "../../../ipstatic/hdl" \
+"../../../../LAB_7_cur.srcs/sources_1/ip/splitter/sim/splitter.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

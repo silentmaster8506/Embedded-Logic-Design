@@ -1,0 +1,7 @@
+vhdl xil_defaultlib  \
+"../../../bd/fft_bd/ip/fft_bd_xfft_0_0/sim/fft_bd_xfft_0_0.vhd" \
+"../../../bd/fft_bd/ip/fft_bd_axi_dma_0_0/sim/fft_bd_axi_dma_0_0.vhd" \
+"../../../bd/fft_bd/ip/fft_bd_rst_ps7_0_50M_0/sim/fft_bd_rst_ps7_0_50M_0.vhd" \
+"../../../bd/fft_bd/ip/fft_bd_axi_smc_0/bd_0/ip/ip_1/sim/bd_a8ca_psr_aclk_0.vhd" \
+
+nosort

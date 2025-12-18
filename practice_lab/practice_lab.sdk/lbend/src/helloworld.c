@@ -1,0 +1,153 @@
+#include <stdio.h>
+#include <math.h>
+#include <complex.h>
+#include <stdlib.h>
+#include "platform.h"
+#include "xil_printf.h"
+#include <xtime_l.h>
+#include "xparameters.h"
+#include "xaxidma.h"
+#include "dma_init.h"
+
+#define N 16 // 16-point FFT
+
+// Bit-reversed indices for 16-point FFT
+const int rev16[N] = {
+    0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15
+};
+
+// Twiddle factors for 16-point FFT
+const float complex W[N / 2] = {
+    1.000000 + 0.000000*I, 0.923880 - 0.382683*I, 0.707107 - 0.707107*I, 0.382683 - 0.923880*I,
+    0.000000 - 1.000000*I, -0.382683 - 0.923880*I, -0.707107 - 0.707107*I, -0.923880 - 0.382683*I
+};
+
+// Function for bit-reversal reordering
+void bitreverse(const float complex dataIn[N], float complex dataOut[N]) {
+    for (int i = 0; i < N; i++) {
+        dataOut[i] = dataIn[rev16[i]];
+    }
+}
+
+// Function to compute FFT stages
+void FFT_stages(const float complex FFT_input[N], float complex FFT_output[N]) {
+    float complex temp1[N], temp2[N], temp3[N], FFT_inputR[N];
+
+    for (int i = 0; i < N; i++) {
+        float real = (crealf(FFT_input[i]));
+        float imag = (cimagf(FFT_input[i]));
+
+        // UPDATED LINE (multiply then add 2)
+        FFT_inputR[i] = (2 * real + 2) + I * (2 * imag + 2);
+    }
+
+    // Stage 1: Butterfly computation with stride 2
+    for (int i = 0; i < N; i += 2) {
+        temp1[i] = FFT_inputR[i] + FFT_inputR[i + 1];
+        temp1[i + 1] = FFT_inputR[i] - FFT_inputR[i + 1];
+    }
+
+    // Stage 2: Butterfly computation with stride 4
+    for (int i = 0; i < N; i += 4) {
+        for (int j = 0; j < 2; ++j) {
+            temp2[i + j] = temp1[i + j] + W[(N / 4) * j] * temp1[i + j + 2];
+            temp2[i + 2 + j] = temp1[i + j] - W[(N / 4) * j] * temp1[i + j + 2];
+        }
+    }
+
+    // Stage 3: Butterfly computation with stride 8
+    for (int i = 0; i < N; i += 8) {
+        for (int j = 0; j < 4; ++j) {
+            temp3[i + j] = temp2[i + j] + W[(N / 8) * j] * temp2[i + j + 4];
+            temp3[i + 4 + j] = temp2[i + j] - W[(N / 8) * j] * temp2[i + j + 4];
+        }
+    }
+
+    // Stage 4: Final butterfly computation with stride 16
+    for (int i = 0; i < N; i += 16) {
+        for (int j = 0; j < 8; ++j) {
+            FFT_output[i + j] = temp3[i + j] + W[j] * temp3[i + j + 8];
+            FFT_output[i + 8 + j] = temp3[i + j] - W[j] * temp3[i + j + 8];
+        }
+    }
+}
+
+
+// Main function
+int main() {
+    init_platform();
+
+    XTime PL_start_time, PL_end_time;
+    XTime PS_start_time, PS_end_time;
+
+    const float complex FFT_input[N] = {
+        1.0 + 1.0*I, 2.0 + 2.0*I, 3.0 + 3.0*I, 4.0 + 4.0*I,
+        5.0 + 5.0*I, 6.0 + 6.0*I, 7.0 + 7.0*I, 8.0 + 8.0*I,
+        9.0 + 9.0*I, 10.0 + 10.0*I, 11.0 + 11.0*I, 12.0 + 12.0*I,
+        13.0 + 13.0*I, 14.0 + 14.0*I, 15.0 + 15.0*I, 15.0 + 15.0*I
+    };
+
+    float complex FFT_output_sw[N], FFT_output_hw[N] = {0};
+    float complex FFT_rev_sw[N];
+
+    XAxiDma AxiDMA;
+    int status = DMA_Init(&AxiDMA, XPAR_AXI_DMA_0_DEVICE_ID);
+
+    if (status != XST_SUCCESS) {
+        printf("\n\rDMA Initialization Failed! Exiting...\n\r");
+        return XST_FAILURE;
+    }
+
+    // Perform FFT in software (PS)
+    XTime_SetTime(0);
+    XTime_GetTime(&PS_start_time);
+
+    bitreverse(FFT_input, FFT_rev_sw);
+    FFT_stages(FFT_rev_sw, FFT_output_sw);
+
+    XTime_GetTime(&PS_end_time);
+
+    // Perform FFT in hardware (PL)
+    XTime_SetTime(0);
+    XTime_GetTime(&PL_start_time);
+
+    status = XAxiDma_SimpleTransfer(&AxiDMA, (UINTPTR)FFT_input, sizeof(float complex) * N, XAXIDMA_DMA_TO_DEVICE);
+    if (status != XST_SUCCESS) {
+        printf("\n\rDMA Input Transfer Failed!");
+        return XST_FAILURE;
+    }
+    while (XAxiDma_Busy(&AxiDMA, XAXIDMA_DMA_TO_DEVICE));
+
+    status = XAxiDma_SimpleTransfer(&AxiDMA, (UINTPTR)FFT_output_hw, sizeof(float complex) * N, XAXIDMA_DEVICE_TO_DMA);
+    if (status != XST_SUCCESS) {
+        printf("\n\rDMA Output Transfer Failed!");
+        return XST_FAILURE;
+    }
+    while (XAxiDma_Busy(&AxiDMA, XAXIDMA_DEVICE_TO_DMA));
+
+    XTime_GetTime(&PL_end_time);
+
+    for (int i = 0; i < N; i++) {
+        printf("\n\rPS Output: %.6f + %.6fI, PL Output: %.6f + %.6fI",
+               crealf(FFT_output_sw[i]), cimagf(FFT_output_sw[i]),
+               crealf(FFT_output_hw[i]), cimagf(FFT_output_hw[i]));
+
+        float diff1 = fabsf(crealf(FFT_output_sw[i]) - crealf(FFT_output_hw[i]));
+        float diff2 = fabsf(cimagf(FFT_output_sw[i]) - cimagf(FFT_output_hw[i]));
+
+        if (diff1 >= 0.0001 || diff2 >= 0.0001) {
+            printf("\n\rData Mismatch found at index %d!", i);
+        } else {
+            printf(" - DMA Transfer Successful!");
+        }
+    }
+
+    printf("\n\r------- Execution Time Comparison --------");
+    printf("\n\rExecution time for PS in Microseconds: %.6f",
+           (float)(PS_end_time - PS_start_time) / (COUNTS_PER_SECOND / 1e6));
+    printf("\n\rExecution time for PL in Microseconds: %.6f",
+           (float)(PL_end_time - PL_start_time) / (COUNTS_PER_SECOND / 1e6));
+
+    cleanup_platform();
+    return 0;
+}

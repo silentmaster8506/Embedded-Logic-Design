@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# 
+# Start of session at: Wed Dec  3 14:29:35 2025
+# Process ID: 13136
+# Current directory: D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.sdk/webtalk/webtalk.log
+# Journal file: D:/ELD_final_prac/proj_one_div_1p5_plus_fft_x_sub_1p5/proj_one_div_1p5_plus_fft_x_sub_1p5.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl
